@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeX Desktop | Case Study</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .details-container { padding: 120px 8% 60px; }
+        .back-btn { text-decoration: none; color: var(--accent); font-weight: 800; display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
+        .project-header-detail { display: flex; align-items: center; gap: 30px; margin-bottom: 60px; }
+        .project-icon-large { width: 100px; height: 100px; border-radius: 20px; background: var(--card-bg); border: 1px solid var(--line); padding: 15px; }
+        
+        .desktop-showcase { background: var(--card-bg); border-radius: 30px; padding: 40px; border: 1px solid var(--line); margin-bottom: 60px; }
+        .slideshow { position: relative; height: 500px; background: #000; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .slideshow img { position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: 0.6s ease; }
+        .slideshow img.active { opacity: 1; }
+        
+        .slide-nav { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 15px; }
+        .slide-nav button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(10px); transition: 0.3s; }
+        .slide-nav button:hover { background: var(--accent); border-color: var(--accent); }
+
+        .content-section { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; line-height: 1.8; }
+        .tech-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tech-list span { background: rgba(59, 130, 246, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 6px 16px; border-radius: 12px; font-weight: 700; font-size: 0.85rem; }
+        @media (max-width: 992px) { .content-section { grid-template-columns: 1fr; } .slideshow { height: 300px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HOMEX<span>.DESKTOP</span></div>
+        <div class="nav-links"><a href="index.html">Home</a></div>
+    </nav>
+
+    <main class="details-container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> BACK TO DASHBOARD</a>
+
+        <header class="project-header-detail">
+            <img src="images/homex-icon.png" alt="HomeX" class="project-icon-large">
+            <div>
+                <h1>HomeX Exhibition System (Desktop)</h1>
+                <p style="opacity: 0.6;">Advanced Multi-platform Management leveraging Jetpack Compose KMP</p>
+            </div>
+        </header>
+
+        <section class="desktop-showcase">
+            <div class="slideshow" id="homeDeskShow">
+                <img src="images/homex-desktop/homex-desktop-1.png" class="active">
+                <img src="images/homex-desktop/homex-desktop-2.png">
+                <img src="images/homex-desktop/homex-desktop-3.png">
+                <div class="slide-nav">
+                    <button onclick="moveSlide('homeDeskShow', -1)">❮</button>
+                    <button onclick="moveSlide('homeDeskShow', 1)">❯</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="info-left">
+                <h3>Scalable Management</h3>
+                <p>The HomeX Desktop application provides a robust environment for exhibition staff to handle user registrations and attendance tracking at scale. By using <strong>Jetpack Compose for Desktop (KMP)</strong>, the system maintains high performance even with large datasets and frequent database operations.</p>
+                
+                <h3>Core Desktop Features</h3>
+                <ul>
+                    <li><strong>Integrated Workflow:</strong> Seamlessly manages both Admin and Employee tasks from a single, high-resolution dashboard.</li>
+                    <li><strong>Enhanced Organization:</strong> Specialized tools for exhibition staff to monitor visitor entry points and registration queues.</li>
+                    <li><strong>Memorable Experience:</strong> Focuses on speed and reliability to help organizers create a successful and professional event environment.</li>
+                </ul>
+            </div>
+
+            <div class="info-right">
+                <h3>Built With</h3>
+                <div class="tech-list">
+                    <span>Jetpack Compose KMP</span>
+                    <span>Kotlin Multiplatform</span>
+                    <span>Coroutines</span>
+                    <span>SQLDelight</span>
+                </div>
+                
+                <h3 style="margin-top: 40px;">Company Website</h3>
+                <a href="https://homex-egy.com/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">
+                    Visit HomeX Online <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function moveSlide(id, dir) {
+            const container = document.getElementById(id);
+            const slides = container.querySelectorAll('img');
+            let activeIdx = Array.from(slides).findIndex(img => img.classList.contains('active'));
+            slides[activeIdx].classList.remove('active');
+            let nextIdx = (activeIdx + dir + slides.length) % slides.length;
+            slides[nextIdx].classList.add('active');
+        }
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
+</body>
+</html>
