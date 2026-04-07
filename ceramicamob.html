@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -128,4 +129,136 @@
         document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceramica System | Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .details-container { padding: 120px 8% 60px; }
+        .back-btn { text-decoration: none; color: var(--accent); font-weight: 800; display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
+        .project-header-detail { display: flex; align-items: center; gap: 30px; margin-bottom: 60px; }
+        .project-icon-large { width: 100px; height: 100px; border-radius: 22px; background: var(--card-bg); border: 1px solid var(--line); padding: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
+        .slide-box { background: var(--card-bg); border-radius: 30px; padding: 30px; border: 1px solid var(--line); }
+        .slide-box h3 { margin-bottom: 20px; font-size: 1.2rem; color: var(--accent); }
+        .slideshow { position: relative; height: 450px; background: #000; border-radius: 20px; overflow: hidden; }
+        .slideshow img { position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: 0.5s; }
+        .slideshow img.active { opacity: 1; }
+        .slide-nav { position: absolute; bottom: 15px; width: 100%; display: flex; justify-content: center; gap: 15px; }
+        .slide-nav button { background: rgba(255,255,255,0.15); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(5px); }
+        .content-section { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; line-height: 1.8; }
+        .content-section h3 { margin: 30px 0 15px; font-size: 1.5rem; color: var(--accent); }
+        .tech-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tech-list span { background: rgba(59, 130, 246, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 5px 15px; border-radius: 12px; font-weight: 700; font-size: 0.85rem; }
+        @media (max-width: 992px) { .showcase-grid, .content-section { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CERAMICA<span>.CASE</span></div>
+        <div class="nav-links">
+            <a href="index.html">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <main class="details-container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> RETURN TO PROJECTS</a>
+
+        <header class="project-header-detail">
+            <img src="images/ceramica-icon.png" alt="Ceramica Icon" class="project-icon-large">
+            <div>
+                <h1>Ceramica Exhibition System</h1>
+                <p style="opacity: 0.6;">Professional Management for Large Scale Ceramic Events</p>
+            </div>
+        </header>
+
+        <section class="showcase-grid">
+            <div class="slide-box">
+                <h3><i class="fas fa-tools"></i> Administrative Control</h3>
+                <div class="slideshow" id="ceramicaAdmin">
+                    <img src="images/ceramica-mob/admin/ceramica-mob-admin-1.png" class="active" alt="Admin 1">
+                    <img src="images/ceramica-mob/admin/ceramica-mob-admin-2.png" alt="Admin 2">
+                     <img src="images/ceramica-mob/admin/ceramica-mob-admin-3.png" alt="Admin 3">
+                      <img src="images/ceramica-mob/admin/ceramica-mob-admin-4.png" alt="Admin 4">
+                       <img src="images/ceramica-mob/admin/ceramica-mob-admin-5.png" alt="Admin 5">
+                        <img src="images/ceramica-mob/admin/ceramica-mob-admin-6.png" alt="Admin 6">
+                         <img src="images/ceramica-mob/admin/ceramica-mob-admin-7.png" alt="Admin 7">
+                    <div class="slide-nav">
+                        <button onclick="moveSlide('ceramicaAdmin', -1)">❮</button>
+                        <button onclick="moveSlide('ceramicaAdmin', 1)">❯</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-box">
+                <h3><i class="fas fa-users-cog"></i> Staff Operations</h3>
+                <div class="slideshow" id="ceramicaEmp">
+                   <img src="images/ceramica-mob/employee/ceramica-mob-emp-1.png" class="active"  alt="employee 1">
+                     <img src="images/ceramica-mob/employee/ceramica-mob-emp-2.png" alt="employee 2">
+                    <div class="slide-nav">
+                        <button onclick="moveSlide('ceramicaEmp', -1)">❮</button>
+                        <button onclick="moveSlide('ceramicaEmp', 1)">❯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="info-left">
+                <h3>Project Overview</h3>
+                <p>Designed with <strong>Jetpack Compose</strong>, this system was built to handle high-traffic registration and attendance recording for Ceramica Market exhibitions. It bridges the gap between digital registration and physical attendance with speed and reliability.</p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Integrated QR Tech:</strong> Staff can instantly verify tickets and record attendance via camera scanning.</li>
+                    <li><strong>Direct Communication:</strong> Admins can initiate calls to exhibition staff directly through the application's user directory.</li>
+                    <li><strong>Hybrid Registration:</strong> Supports on-site new user onboarding as well as database lookups by phone or email.</li>
+                </ul>
+
+                <h3>Core Impact</h3>
+                <p>The app ensures a professional and organized experience for visitors while providing exhibition organizers with actionable real-time data on visitor numbers and staff performance.</p>
+            </div>
+
+            <div class="info-right">
+                <h3>Technologies</h3>
+                <div class="tech-list">
+                    <span>Jetpack Compose</span>
+                    <span>QR Code Engine</span>
+                    <span>Real-time Database</span>
+                    <span>Calling API Spring boot</span>
+                    <span>Dagger Hilt</span>
+                    <span>Coroutines</span>
+                    <span>Room</span>
+                    <span>MVI Architecture</span>
+                    <span>Clean Architecture</span>
+                </div>
+                
+                <h3 style="margin-top: 40px;">Market Website</h3>
+                <a href="https://ceramicamarket.com/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 700;">
+                    Ceramica Market <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function moveSlide(containerId, direction) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('img');
+            let activeIdx = Array.from(slides).findIndex(img => img.classList.contains('active'));
+            slides[activeIdx].classList.remove('active');
+            let nextIdx = (activeIdx + direction + slides.length) % slides.length;
+            slides[nextIdx].classList.add('active');
+        }
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
+</body>
+>>>>>>> c22828e (Fixing image paths)
 </html>
