@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenXpoLog | Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .details-container { padding: 120px 8% 60px; }
+        .back-btn { text-decoration: none; color: var(--accent); font-weight: 800; display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
+        .project-header-detail { display: flex; align-items: center; gap: 30px; margin-bottom: 60px; }
+        .project-icon-large { width: 100px; height: 100px; border-radius: 22px; background: var(--card-bg); border: 1px solid var(--line); padding: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .showcase-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; margin: 60px 0; }
+        .slide-box { background: var(--card-bg); border-radius: 30px; padding: 25px; border: 1px solid var(--line); }
+        .slide-box h3 { margin-bottom: 20px; font-size: 1.1rem; color: var(--accent); }
+        .slideshow { position: relative; height: 420px; background: #000; border-radius: 20px; overflow: hidden; }
+        .slideshow img { position: absolute; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: 0.5s; }
+        .slideshow img.active { opacity: 1; }
+        .slide-nav { position: absolute; bottom: 15px; width: 100%; display: flex; justify-content: center; gap: 15px; z-index: 2; }
+        .slide-nav button { background: rgba(255,255,255,0.15); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; backdrop-filter: blur(5px); }
+        .slide-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); font-size: 0.9rem; text-align: center; padding: 20px; }
+        .content-section { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; line-height: 1.8; }
+        .content-section h3 { margin: 30px 0 15px; font-size: 1.5rem; color: var(--accent); }
+        .content-section ul { padding-left: 20px; }
+        .tech-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tech-list span { background: rgba(59, 130, 246, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 5px 15px; border-radius: 12px; font-weight: 700; font-size: 0.85rem; }
+        .screen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+        .screen-grid .item { background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+        .screen-grid .item h4 { margin-bottom: 6px; color: var(--accent); font-size: 0.95rem; }
+        .screen-grid .item p { font-size: 0.9rem; opacity: 0.8; }
+        @media (max-width: 1100px) { .showcase-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 760px) { .showcase-grid, .content-section, .screen-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GREENXPO<span>.CASE</span></div>
+        <div class="nav-links">
+            <a href="index.html">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <main class="details-container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> RETURN TO PROJECTS</a>
+
+        <header class="project-header-detail">
+            <img src="images/greenland-icon.png" alt="GreenXpoLog Icon" class="project-icon-large">
+            <div>
+                <h1>GreenXpoLog</h1>
+                <p style="opacity: 0.6;">Multiplatform Attendance & Follow-Up Suite for GreenLand's HomeX and Ceramica Market exhibitions — co-located, four-day run</p>
+            </div>
+        </header>
+
+        <section class="showcase-grid">
+            <div class="slide-box">
+                <h3><i class="fas fa-user-shield"></i> Admin Workspace</h3>
+                <div class="slideshow" id="adminSlides">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-1.png" class="active" alt="Login">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-2.png" alt="Home / Attendance">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-3.png" alt="Add Customer">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-4.png" alt="Users Directory">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-5.png" alt="Admin / History">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-6.png" alt="Events">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-7.png" alt="Duplicates">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-8.png" alt="Trash">
+                    <img src="images/greenxpolog-mob/admin/greenxpolog-mob-admin-9.png" alt="Follow-ups">
+                    <div class="slide-nav">
+                        <button onclick="moveSlide('adminSlides', -1)">❮</button>
+                        <button onclick="moveSlide('adminSlides', 1)">❯</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-box">
+                <h3><i class="fas fa-id-card"></i> Employee Workspace</h3>
+                <div class="slideshow" id="empSlides">
+                    <img src="images/greenxpolog-mob/employee/greenxpolog-mob-emp-1.png" class="active" alt="Login">
+                    <img src="images/greenxpolog-mob/employee/greenxpolog-mob-emp-2.png" alt="Home / Attendance">
+                    <img src="images/greenxpolog-mob/employee/greenxpolog-mob-emp-3.png" alt="Add Customer">
+                    <div class="slide-nav">
+                        <button onclick="moveSlide('empSlides', -1)">❮</button>
+                        <button onclick="moveSlide('empSlides', 1)">❯</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-box">
+                <h3><i class="fas fa-headset"></i> Follower Workspace</h3>
+                <div class="slideshow" id="folSlides">
+                    <img src="images/greenxpolog-mob/follower/greenxpolog-mob-fol-1.png" class="active" alt="Login">
+                    <img src="images/greenxpolog-mob/follower/greenxpolog-mob-fol-2.png" alt="Follow-ups · Before attend">
+                    <img src="images/greenxpolog-mob/follower/greenxpolog-mob-fol-3.png" alt="Follow-ups · After attend">
+                    <img src="images/greenxpolog-mob/follower/greenxpolog-mob-fol-4.png" alt="Template Editor">
+                    <div class="slide-nav">
+                        <button onclick="moveSlide('folSlides', -1)">❮</button>
+                        <button onclick="moveSlide('folSlides', 1)">❯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="info-left">
+                <h3>The Vision</h3>
+                <p>GreenXpoLog is a single Kotlin Multiplatform suite — Android, iOS, and Desktop — that runs the entire visitor lifecycle for two co-located exhibitions hosted by <strong>GreenLand</strong>: <strong>HomeX</strong> (tagged <strong>H</strong>) and <strong>Ceramica Market</strong> (tagged <strong>C</strong>). Both run at the same venue over the same four-day window, and a single visitor can be registered against either exhibition (or both). The app handles on-site QR registration and attendance, all the way through post-event follow-up and bulk WhatsApp messaging. The full backend was built in-house with <strong>Spring Boot</strong> exposing a versioned REST API, hosted on a managed cloud platform, and consumed by every client through Ktor.</p>
+
+                <h3>Three Roles, One App</h3>
+                <p><strong>Admin</strong> — full visibility across both the HomeX (H) and Ceramica Market (C) databases, attendance history with date and event filters, soft-delete with a recoverable Trash, a Duplicates tool that flags repeated phones/emails across both exhibitions, and a Follow-Up board to assign and audit post-event outreach.</p>
+                <p><strong>Employee</strong> — the on-floor scanner. Search by QR, phone, email, or name; mark attendance in one tap; register walk-ins with a draft that syncs once connectivity returns; and send the visitor a personalized WhatsApp message straight from the profile sheet.</p>
+                <p><strong>Follower</strong> — a restricted role purpose-built for the post-event call team. Sees only the Follow-Up tab with a curated list of attendees who still need outreach, can mark "pre-followed-up" / "followed-up" with a timestamped audit trail, and never sees admin-only tooling.</p>
+
+                <h3>All Screens at a Glance</h3>
+                <div class="screen-grid">
+                    <div class="item">
+                        <h4>Splash</h4>
+                        <p>Restores session from secure key-value storage and routes the user to Login or the role-appropriate landing screen.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Login</h4>
+                        <p>Username + password against the Spring Boot auth endpoint; the returned JWT is attached to every subsequent request.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Home / Attendance</h4>
+                        <p>The primary work surface. Search bar with debounced (2&nbsp;s, ≥6 chars) query, full-screen QR scanner, instant visitor profile sheet with confirm-attendance and follow-up actions.</p>
+                    </div>
+                    <div class="item">
+                        <h4>QR Scanner</h4>
+                        <p>Cross-platform camera capture with platform-specific implementations on Android, iOS, and Desktop. Auto-decodes the QR and jumps straight to the matching visitor.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Users Directory</h4>
+                        <p>Browseable listing of every visitor across both exhibitions (HomeX and Ceramica Market) with exhibition filters and the same search debounce as Home.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Register / Settings</h4>
+                        <p>On-site walk-in registration plus profile, message-template editor, and account management. Drafts created offline are queued and posted to the API as soon as the network is back.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Admin → Attendance History</h4>
+                        <p>Date- and event-scoped attendance log with CSV export; per-day attended counts split by event.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Admin → Trash</h4>
+                        <p>Soft-deleted users with one-tap restore or permanent hard-delete, scoped per user type.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Admin → Duplicates</h4>
+                        <p>Detects repeated phone numbers and emails across both tables, lets the admin merge or remove the duplicate.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Admin → Events</h4>
+                        <p>Manage event records (one per day across the four-day GreenLand exhibition window, with HomeX and Ceramica Market running side-by-side) and back-fill historical attendance into the new event model.</p>
+                    </div>
+                    <div class="item">
+                        <h4>Follow-Up Board</h4>
+                        <p>The whole world for the Follower role; the admin can also open it to audit progress. Filters by Before / After Attend, tracks "pre-followed-up" and "followed-up" timestamps with the actor's identity.</p>
+                    </div>
+                    <div class="item">
+                        <h4>WhatsApp Messaging</h4>
+                        <p>A reusable template engine renders {name}, {product}, {brand}, and a hosted QR-page link, then hands off to WhatsApp via the platform's deep-link.</p>
+                    </div>
+                </div>
+
+                <h3>Engineering Highlights</h3>
+                <ul>
+                    <li><strong>One codebase, three targets.</strong> Compose Multiplatform UI, with Ktor's HTTP engine and Room's database builder swapped per platform via <code>expect</code>/<code>actual</code>.</li>
+                    <li><strong>Offline-first.</strong> Every list reads from Room; remote responses backfill the cache. Walk-in registrations are saved as local drafts and reconciled with the server when connectivity returns.</li>
+                    <li><strong>Clean Architecture + MVVM.</strong> Single-responsibility use cases (one method, one repo call), repositories behind interfaces, and a sealed <code>ViewModelStates</code> hierarchy that keeps the UI predictable.</li>
+                    <li><strong>Spring Boot backend.</strong> Custom REST API with auth, role-aware user management, attendance and follow-up endpoints, soft delete + restore, event back-fill, and a hosted QR landing page.</li>
+                </ul>
+            </div>
+
+            <div class="info-right">
+                <h3>Client Stack</h3>
+                <div class="tech-list">
+                    <span>Kotlin Multiplatform</span>
+                    <span>Compose Multiplatform</span>
+                    <span>Material 3</span>
+                    <span>Ktor Client</span>
+                    <span>Room (KSP)</span>
+                    <span>Koin DI</span>
+                    <span>Multiplatform Settings</span>
+                    <span>Kotlinx Serialization</span>
+                    <span>Coroutines / Flow</span>
+                    <span>Clean Architecture</span>
+                    <span>MVVM</span>
+                </div>
+
+                <h3 style="margin-top: 40px;">Backend Stack</h3>
+                <div class="tech-list">
+                    <span>Spring Boot</span>
+                    <span>Spring Security (JWT)</span>
+                    <span>REST API</span>
+                    <span>Cloud-Hosted</span>
+                </div>
+
+                <h3 style="margin-top: 40px;">Targets</h3>
+                <div class="tech-list">
+                    <span>Android</span>
+                    <span>iOS</span>
+                    <span>Desktop (JVM)</span>
+                </div>
+
+                <h3 style="margin-top: 40px;">Related Projects</h3>
+                <a href="homexmob.html" style="display:block; color: var(--accent); text-decoration: none; font-weight: 700; margin-bottom: 8px;">
+                    HomeX Exhibition System <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="ceramicamob.html" style="display:block; color: var(--accent); text-decoration: none; font-weight: 700;">
+                    Ceramica Exhibition System <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function moveSlide(containerId, direction) {
+            const container = document.getElementById(containerId);
+            const slides = container.querySelectorAll('img');
+            if (slides.length === 0) return;
+            let activeIdx = Array.from(slides).findIndex(img => img.classList.contains('active'));
+            if (activeIdx < 0) activeIdx = 0;
+            slides[activeIdx].classList.remove('active');
+            let nextIdx = (activeIdx + direction + slides.length) % slides.length;
+            slides[nextIdx].classList.add('active');
+        }
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
+</body>
+</html>
