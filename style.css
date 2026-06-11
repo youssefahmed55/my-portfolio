@@ -41,7 +41,7 @@ h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1; 
 .group-label { font-size: 1.3rem; font-weight: 800; }
 .group-info p { font-size: 0.9rem; opacity: 0.5; margin-top: 2px; }
 
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 30px; }
 .project-card { 
     background: var(--card-bg); padding: 45px; border-radius: 30px; text-decoration: none; color: inherit;
     border: 1px solid var(--line); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -88,4 +88,41 @@ footer { padding: 60px; text-align: center; opacity: 0.3; font-size: 0.8rem; let
     .contact-box { grid-template-columns: 1fr; padding: 40px; gap: 40px; }
     .nav-links { display: none; }
     .hero { padding-top: 100px; }
+}
+
+/* الهواتف (Phones) — تصغير المقاسات المخصصة للديسكتوب */
+@media (max-width: 600px) {
+    nav { padding: 18px 6%; }
+
+    /* تقليل الفراغات الكبيرة */
+    .container { padding: 60px 6%; }
+    .section-title { margin-bottom: 45px; }
+    .project-group { margin-bottom: 60px; }
+    .group-header { gap: 14px; margin-bottom: 28px; padding-bottom: 16px; }
+    .group-icon { width: 46px; height: 46px; font-size: 1.15rem; border-radius: 12px; }
+    .group-label { font-size: 1.1rem; }
+
+    /* كروت المشاريع: حشو أقل وحجم خط أنسب للجوال */
+    .project-card { padding: 26px; min-height: auto; border-radius: 22px; }
+    .project-card h4 { font-size: 1.45rem; letter-spacing: -0.5px; }
+    .project-card p { margin-bottom: 18px; }
+
+    /* الهيرو */
+    .hero { min-height: auto; padding: 40px 20px 20px; }
+    .profile-glow { width: 120px; height: 120px; margin-bottom: 24px; }
+    .hero-desc { font-size: 1.02rem; }
+
+    /* التواصل */
+    .contact-blur-bg { width: 260px; height: 260px; }
+    .contact-box { padding: 26px; border-radius: 26px; gap: 28px; }
+    .contact-pill { padding: 16px; gap: 14px; }
+    .pill-icon { width: 44px; height: 44px; font-size: 1.2rem; }
+    .pill-text strong { font-size: 0.9rem; overflow-wrap: anywhere; word-break: normal; }
+    footer { padding: 40px 20px; }
+
+    /* صفحات تفاصيل المشاريع: ترويسة عمودية + عنوان أصغر بدل مقاس الديسكتوب */
+    .details-container { padding: 90px 6% 40px; }
+    .details-container .project-header-detail { flex-direction: column; align-items: stretch; gap: 16px; margin-bottom: 40px; }
+    .details-container .project-header-detail h1 { font-size: clamp(1.7rem, 7vw, 2.4rem); letter-spacing: -1px; }
+    .details-container .project-icon-large { width: 68px; height: 68px; padding: 12px; }
 }
